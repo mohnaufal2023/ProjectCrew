@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meeting Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+      }
+      .icon-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 100px;
+        background-color: #17a2b8;
+        color: white;
+        border-radius: 10px;
+        margin: 10px;
+        text-align: center;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .icon-button:hover {
+        background-color: #138496;
+        transform: scale(1.1);
+      }
+      .icon-button:active {
+        transform: scale(0.95);
+      }
+      .icon-button i {
+        font-size: 2rem;
+        margin-bottom: 5px;
+        transition: transform 0.3s ease;
+      }
+      .icon-button:active i {
+        transform: scale(0.95);
+      }
+      .icon-button p {
+        margin: 0;
+      }
+      .calendar {
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+      }
+      .calendar img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .calendar h5 {
+        margin-top: 10px;
+      }
+      .fade-in {
+        opacity: 0;
+        transition: opacity 1s ease-in;
+      }
+      .fade-in.show {
+        opacity: 1;
+      }
+      .modal-header {
+        background-color: #17a2b8;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 15px 20px;
+      }
+      .modal-content {
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .modal-body {
+        padding: 30px;
+        text-align: center;
+      }
+      .modal-body button {
+        font-size: 1.2rem;
+        padding: 15px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .modal-body button:hover {
+        background-color: #138496;
+        transform: scale(1.05);
+      }
+      .modal-dialog {
+        margin-top: 10%;
+      }
+      .link-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+      }
+      .link-container input {
+        border: none;
+        background: none;
+        width: 100%;
+        margin-right: 10px;
+      }
+      .link-container button {
+        background-color: #17a2b8;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .link-container button:hover {
+        background-color: #138496;
+      }
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-container input {
+        margin-bottom: 15px;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+      }
+      .form-container button {
+        background-color: #ffc107;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .form-container button:hover {
+        background-color: #e0a800;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container fade-in">
+      <div class="row mb-4">
+        <div class="col-12">
+          <button class="btn btn-info"><i class="bi bi-arrow-left"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Building teams and working from</h1>
+          <h2 style="color: #138496">Meeting</h2>
+          <div class="d-flex flex-wrap">
+            <div class="icon-button" data-bs-toggle="modal" data-bs-target="#meetingModal">
+              <i class="bi bi-camera-video"></i>
+              <p>New meeting</p>
+            </div>
+            <div class="icon-button">
+              <i class="bi bi-plus"></i>
+              <p>Join</p>
+            </div>
+            <div class="icon-button">
+              <i class="bi bi-clock"></i>
+              <p>Schedule</p>
+            </div>
+            <div class="icon-button">
+              <i class="bi bi-arrow-up"></i>
+              <p>Share screen</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="calendar">
+            <img src="images/backcalender.jpg" alt="Calendar Image" />
+            <h5>DECEMBER 2024</h5>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>sun</th>
+                  <th>mon</th>
+                  <th>tue</th>
+                  <th>wed</th>
+                  <th>thu</th>
+                  <th>fri</th>
+                  <th>sat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>7</td>
+                  <td>8</td>
+                  <td>9</td>
+                  <td>10</td>
+                  <td>11</td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>14</td>
+                  <td>15</td>
+                  <td>16</td>
+                  <td>17</td>
+                  <td>18</td>
+                  <td>19</td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>21</td>
+                  <td>22</td>
+                  <td>23</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>26</td>
+                </tr>
+                <tr>
+                  <td>27</td>
+                  <td>28</td>
+                  <td>29</td>
+                  <td>30</td>
+                  <td>31</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="meetingModal" tabindex="-1" aria-labelledby="meetingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="meetingModalLabel">Meeting</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <button class="btn w-100 mb-3" style="background-color: #0c4b54; color: white" data-bs-toggle="modal" data-bs-target="#newMeetingModal">Buat rapat</button>
+            <button class="btn w-100" style="background-color: #0c4b54; color: white" data-bs-toggle="modal" data-bs-target="#joinMeetingModal">Bergabung</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Meeting Modal -->
+    <div class="modal fade" id="newMeetingModal" tabindex="-1" aria-labelledby="newMeetingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="newMeetingModalLabel">Meeting</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <button class="btn w-100 mb-3" style="background-color: #0c4b54; color: white" data-bs-toggle="modal" data-bs-target="#shareLinkModal"><i class="bi bi-share"></i> Bagikan link</button>
+            <button class="btn w-100" style="background-color: #0c4b54; color: white"><i class="bi bi-play-circle"></i> Mulai rapat</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Link Modal -->
+    <div class="modal fade" id="shareLinkModal" tabindex="-1" aria-labelledby="shareLinkModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="shareLinkModalLabel">Link rapat</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="link-container">
+              <input type="text" id="meetingLink" value="https://us06web.zoom.us/j/894245100" readonly />
+              <button onclick="copyLink()">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join Meeting Modal -->
+    <div class="modal fade" id="joinMeetingModal" tabindex="-1" aria-labelledby="joinMeetingModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="joinMeetingModalLabel">Meeting</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-container">
+              <input type="text" placeholder="Masukkan kode" id="meetingCode" />
+              <input type="text" placeholder="Nama peserta" id="participantName" />
+
+              <button onclick="window.location.href='zoom.html'" style="background-color: #e8f549">Bergabung</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector(".container").classList.add("show");
+      });
+
+      function copyLink() {
+        var copyText = document.getElementById("meetingLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+        document.execCommand("copy");
+        alert("Link disalin: " + copyText.value);
+      }
+
+      function joinMeeting() {
+        var meetingCode = document.getElementById("meetingCode").value;
+        var participantName = document.getElementById("participantName").value;
+        alert("Kode Rapat: " + meetingCode + "\nNama Peserta: " + participantName);
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
